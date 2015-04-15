@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	
+	
+	
+	
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Operate</servlet-name>
+    <servlet-class>control.Operate</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>OpreateAction</servlet-name>
+    <servlet-class>control.OpreateAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AdminAction</servlet-name>
+    <servlet-class>control.AdminAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>A</servlet-name>
+    <servlet-class>control.A</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>OperateAction</servlet-name>
+    <servlet-class>control.OperateAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ServerAction</servlet-name>
+    <servlet-class>control.ServerAction</servlet-class>
+  </servlet>
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>Operate</servlet-name>
+    <url-pattern>/Operate</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OpreateAction</servlet-name>
+    <url-pattern>/OpreateAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminAction</servlet-name>
+    <url-pattern>/AdminAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>A</servlet-name>
+    <url-pattern>/A</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OperateAction</servlet-name>
+    <url-pattern>/OperateAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServerAction</servlet-name>
+    <url-pattern>/ServerAction</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
