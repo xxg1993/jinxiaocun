@@ -42,7 +42,7 @@ public class OperateServlet {
 	
 	
 	//添加用户基本信息
-	public boolean adduser(String name,String sex,String year,String month,String day,String phone,String company,String adress,String jzphone,String flag,String server)
+	public boolean adduser(String name,String sex,String year,String month,String day,String phone,String company,String adress,String jzphone,String flag,String server,String time)
 	{
 		int i;
 		i=1;
@@ -71,7 +71,7 @@ public class OperateServlet {
 		String sqlstr4="insert into interview(id,name,time,feel,supervise,advise) values (?,?,?,?,?,?)";
 		JDBConnection.update(sqlstr4,new String[]{id,name,"","","",""});
 		
-		if (JDBConnection.update("insert into users(id,name,sex,year,month,day,phone,jzphone,company,adress,flag,server) values (?,?,?,?,?,?,?,?,?,?,?,?)", new String[]{id,name,sex,year,month,day,phone,jzphone,company,adress,flag,server}))
+		if (JDBConnection.update("insert into users(id,name,sex,year,month,day,phone,jzphone,company,adress,flag,server,time) values (?,?,?,?,?,?,?,?,?,?,?,?,?)", new String[]{id,name,sex,year,month,day,phone,jzphone,company,adress,flag,server,time}))
 		{
 			
 			
@@ -199,10 +199,10 @@ public class OperateServlet {
 	
 	
 	//更新用户检查后的信息
-	public boolean updatecheckUser(String id,String name,String firstill1,String firstill2,String firstill3,String firstill4,String familyhistory1,String familyhistory2,String familyhistory3,String familyhistory4,String posture,String leftdiopter,String rightdiopter,String leftaxis,String rightaxis,String leftpd,String rightpd)
+	public boolean updatecheckUser(String id,String name,String firstill1,String firstill2,String firstill3,String firstill4,String familyhistory1,String familyhistory2,String familyhistory3,String familyhistory4,String posture,String leftdiopter,String rightdiopter,String leftaxis,String rightaxis,String leftpd,String rightpd,String time)
 	{
-		String sqlstr="update usersafterinf set name=?,firstill1=?,firstill2=?,firstill3=?,firstill4=?,familyhistory1=?,familyhistory2=?,familyhistory3=?,familyhistory4=?,posture=?,leftdiopter=?,rightdiopter=?,leftaxis=?,rightaxis=?,leftpd=?,rightpd=? where id=?";
-		if (JDBConnection.update(sqlstr,new String[]{name,firstill1,firstill2,firstill3,firstill4,familyhistory1,familyhistory2,familyhistory3,familyhistory4,posture,leftdiopter,rightdiopter,leftaxis,rightaxis,leftpd,rightpd,id}))
+		String sqlstr="update usersafterinf set name=?,firstill1=?,firstill2=?,firstill3=?,firstill4=?,familyhistory1=?,familyhistory2=?,familyhistory3=?,familyhistory4=?,posture=?,leftdiopter=?,rightdiopter=?,leftaxis=?,rightaxis=?,leftpd=?,rightpd=?,time=? where id=?";
+		if (JDBConnection.update(sqlstr,new String[]{name,firstill1,firstill2,firstill3,firstill4,familyhistory1,familyhistory2,familyhistory3,familyhistory4,posture,leftdiopter,rightdiopter,leftaxis,rightaxis,leftpd,rightpd,time,id}))
 			return true;
 		else
 			return false;
@@ -219,10 +219,10 @@ public class OperateServlet {
 			String rrprism2,String rrbottom2,String rrfixed,String rrcomment,String rlbottom,
 			String rlprism2,String rlbottom2,String rlfixed,String rlcomment,String glass,
 			String glassnum,String glassprice,String mounting,String mountingnum,String mountingprice,
-			String allmountingprice,String optometrist,String decisionmaker,String trier,String receiver)
+			String allmountingprice,String optometrist,String decisionmaker,String trier,String receiver,String time)
 	{
-		String sqlstr="update peijingxinxi set name=?,vrnake=?,vrsphere=?,vrcylinder=?,vraxis=?,vrprism=?,vlnake=?,vlsphere=?,vlcylinder=?,vlaxis=?,vlprism=?,rrnake=?,rrsphere=?,rrcylinder=?,rraxis=?,rrprism=?,rlnake=?,rlsphere=?,rlcylinder=?,rlaxis=?,rlprism=?,vrbottom=?,vrprism2=?,vrbottom2=?,vrfixed=?,vrcomment=?,vlbottom=?,vlprism2=?,vlbottom2=?,vlfixed=?,vlcomment=?,rrbottom=?,rrprism2=?,rrbottom2=?,rrfixed=?,rrcomment=?,rlbottom=?,rlprism2=?,rlbottom2=?,rlfixed=?,rlcomment=?,glass=?,glassnum=?,glassprice=?,mounting=?,mountingnum=?,mountingprice=?,allmountingprice=?,optometrist=?,decisionmaker=?,trier=?,receiver=? where id=?";
-		if (JDBConnection.update(sqlstr, new String[]{name,vrnake,vrsphere,vrcylinder,vraxis,vrprism,vlnake,vlsphere,vlcylinder,vlaxis,vlprism,rrnake,rrsphere,rrcylinder,rraxis,rrprism,rlnake,rlsphere,rlcylinder,rlaxis,rlprism,vrbottom,vrprism2,vrbottom2,vrfixed,vrcomment,vlbottom,vlprism2,vlbottom2,vlfixed,vlcomment,rrbottom,rrprism2,rrbottom2,rrfixed,rrcomment,rlbottom,rlprism2,rlbottom2,rlfixed,rlcomment,glass,glassnum,glassprice,mounting,mountingnum,mountingprice,allmountingprice,optometrist,decisionmaker,trier,receiver,id}))
+		String sqlstr="update peijingxinxi set name=?,vrnake=?,vrsphere=?,vrcylinder=?,vraxis=?,vrprism=?,vlnake=?,vlsphere=?,vlcylinder=?,vlaxis=?,vlprism=?,rrnake=?,rrsphere=?,rrcylinder=?,rraxis=?,rrprism=?,rlnake=?,rlsphere=?,rlcylinder=?,rlaxis=?,rlprism=?,vrbottom=?,vrprism2=?,vrbottom2=?,vrfixed=?,vrcomment=?,vlbottom=?,vlprism2=?,vlbottom2=?,vlfixed=?,vlcomment=?,rrbottom=?,rrprism2=?,rrbottom2=?,rrfixed=?,rrcomment=?,rlbottom=?,rlprism2=?,rlbottom2=?,rlfixed=?,rlcomment=?,glass=?,glassnum=?,glassprice=?,mounting=?,mountingnum=?,mountingprice=?,allmountingprice=?,optometrist=?,decisionmaker=?,trier=?,receiver=?,time=? where id=?";
+		if (JDBConnection.update(sqlstr, new String[]{name,vrnake,vrsphere,vrcylinder,vraxis,vrprism,vlnake,vlsphere,vlcylinder,vlaxis,vlprism,rrnake,rrsphere,rrcylinder,rraxis,rrprism,rlnake,rlsphere,rlcylinder,rlaxis,rlprism,vrbottom,vrprism2,vrbottom2,vrfixed,vrcomment,vlbottom,vlprism2,vlbottom2,vlfixed,vlcomment,rrbottom,rrprism2,rrbottom2,rrfixed,rrcomment,rlbottom,rlprism2,rlbottom2,rlfixed,rlcomment,glass,glassnum,glassprice,mounting,mountingnum,mountingprice,allmountingprice,optometrist,decisionmaker,trier,receiver,time,id}))
 			return true;
 		else
 			return false;
@@ -274,12 +274,26 @@ public class OperateServlet {
 	
 	
 	
+	//删除所有已经过期的预约
+
+	
+	
+	//按id号查看客户
 	public List lookAllUser()
 	{
 		String sqlstr="select * from users";
 		List list=JDBConnection.queryForList(sqlstr, null);
 		return list;
 	}
+	
+	//按姓名号查看客户
+	public List lookAllUserByName()
+	{
+		String sqlstr="select * from users order by name asc";
+		List list=JDBConnection.queryForList(sqlstr, null);
+		return list;
+	}
+	
 	
 	
 	
@@ -322,5 +336,6 @@ public class OperateServlet {
 			return false;
 		
 	}
+	
 	
 }

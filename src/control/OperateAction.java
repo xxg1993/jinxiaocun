@@ -2,6 +2,7 @@ package control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
 
@@ -51,6 +52,10 @@ public class OperateAction extends HttpServlet {
 		{
 			lookAllUsers(request, response);
 		}
+		else if (action.equals("LookAllUserOrderByName"))
+		{
+			LookAllUserOrderByName(request, response);
+		}
 		else if (action.equals("tiaoZhuanInputCheckInf"))
 		{
 			tiaoZhuanInputCheckInf(request, response);
@@ -82,6 +87,10 @@ public class OperateAction extends HttpServlet {
 		else if (action.equals("updateoperate"))
 		{
 			updateoperate(request, response);
+		}
+		else if (action.equals("deletePartOrder"))
+		{
+			deletePartOrder(request, response);
 		}
 
 	}
@@ -141,7 +150,9 @@ public class OperateAction extends HttpServlet {
 		
 		request.setCharacterEncoding("gbk");
 		OperateServlet user=new OperateServlet();
-		String id=request.getParameter("id");
+		String id1=request.getParameter("id");
+		String id = new String(id1.getBytes("ISO-8859-1"),"gbk"); 
+		
 		Map map=user.selescid(id);
 		request.setAttribute("map", map);
 		request.getRequestDispatcher("updateUser.jsp").forward(request, response);
@@ -154,7 +165,8 @@ public class OperateAction extends HttpServlet {
 		
 		request.setCharacterEncoding("gbk");
 		OperateServlet user=new OperateServlet();
-		String id=request.getParameter("id");
+		String id1=request.getParameter("id");
+		String id = new String(id1.getBytes("ISO-8859-1"),"gbk");
 		System.out.println("id:"+id);
 		
 		if (user.deleteUser(id))
@@ -178,7 +190,8 @@ public class OperateAction extends HttpServlet {
 		
 		request.setCharacterEncoding("gbk");
 		OperateServlet user=new OperateServlet();
-		String id=request.getParameter("id");
+		String id1=request.getParameter("id");
+		String id = new String(id1.getBytes("ISO-8859-1"),"gbk");
 		System.out.println("id:"+id);
 		
 		if (user.deleteCheckUser(id))
@@ -202,7 +215,8 @@ public class OperateAction extends HttpServlet {
 		
 		request.setCharacterEncoding("gbk");
 		OperateServlet user=new OperateServlet();
-		String id=request.getParameter("id");
+		String id1=request.getParameter("id");
+		String id = new String(id1.getBytes("ISO-8859-1"),"gbk");
 		System.out.println("id:"+id);
 		
 		if (user.deletepeijingxinxiUser(id))
@@ -221,7 +235,7 @@ public class OperateAction extends HttpServlet {
 	
 	
 	
-	//查看所有用户信息
+	//查看所有用户信息  按id号排序
 		private void lookAllUsers(HttpServletRequest request, HttpServletResponse response) 
 		throws ServletException, IOException {
 			
@@ -233,6 +247,17 @@ public class OperateAction extends HttpServlet {
 			
 		}
 		
+		//查看所有用户信息  按姓名号排序
+		private void LookAllUserOrderByName(HttpServletRequest request, HttpServletResponse response) 
+		throws ServletException, IOException {
+			
+			request.setCharacterEncoding("gbk");
+			OperateServlet user=new OperateServlet();
+			List list=user.lookAllUserByName();
+			request.setAttribute("list", list);
+			request.getRequestDispatcher("lookAllUsers.jsp").forward(request, response);
+			
+		}
 		
 		//跳转至检查后的信息
 	
@@ -241,7 +266,8 @@ public class OperateAction extends HttpServlet {
 		{
 			request.setCharacterEncoding("gbk");
 			OperateServlet user=new OperateServlet();
-			String id=request.getParameter("id");
+			String id1=request.getParameter("id");
+			String id = new String(id1.getBytes("ISO-8859-1"),"gbk");
 			Map map=user.selescid(id);
 			request.setAttribute("map", map);
 			request.getRequestDispatcher("updateUserOtherInf.jsp").forward(request, response);
@@ -256,8 +282,9 @@ public class OperateAction extends HttpServlet {
 			
 			request.setCharacterEncoding("gbk");
 			OperateServlet user=new OperateServlet();
-			String id=request.getParameter("id");
-			Map map=user.selescid(id);
+			String id1=request.getParameter("id");
+			String id = new String(id1.getBytes("ISO-8859-1"),"gbk");
+			Map map=user.selesccheck(id);
 			request.setAttribute("map", map);
 			request.getRequestDispatcher("updatecheckUser.jsp").forward(request, response);
 			
@@ -271,7 +298,8 @@ public class OperateAction extends HttpServlet {
 		{
 			request.setCharacterEncoding("gbk");
 			OperateServlet user=new OperateServlet();
-			String id=request.getParameter("id");
+			String id1=request.getParameter("id");
+			String id = new String(id1.getBytes("ISO-8859-1"),"gbk");
 			Map map=user.selescpeijingxinxi(id);
 			request.setAttribute("map", map);
 			request.getRequestDispatcher("updatepeijingxinxi.jsp").forward(request, response);
@@ -284,7 +312,8 @@ public class OperateAction extends HttpServlet {
 		{
 			request.setCharacterEncoding("gbk");
 			OperateServlet user=new OperateServlet();
-			String id=request.getParameter("id");
+			String id1=request.getParameter("id");
+			String id = new String(id1.getBytes("ISO-8859-1"),"gbk");
 			Map map=user.selescid(id);
 			Map map1=user.selesccheck(id);
 			Map map2=user.selescpeijingxinxi(id);
@@ -294,6 +323,28 @@ public class OperateAction extends HttpServlet {
 			request.getRequestDispatcher("LookOneUserinf.jsp").forward(request, response);
 		}
 		
+		
+		
+	//删除所有过期的预约deletePartOrder
+		private void deletePartOrder(HttpServletRequest request, HttpServletResponse response) 
+		throws ServletException, IOException 
+		{
+			request.setCharacterEncoding("gbk");
+			OperateServlet user=new OperateServlet();
+			
+	   		GregorianCalendar time=new GregorianCalendar();
+      		int year,month,date,hour,minute;
+      		year=time.get((time.YEAR));
+      		month=time.get((time.MONTH))+1;
+      		date=time.get((time.DATE));
+      		hour=time.get((time.HOUR))+1;
+      		minute=time.get((time.MINUTE));
+      		
+			
+			
+			operateexit(request, response);
+			
+		}
 
 	/**
 	 * The doPost method of the servlet. <br>
@@ -368,7 +419,7 @@ public class OperateAction extends HttpServlet {
 			String status="operate";
 			session.setAttribute("operatetruename", name);
 			session.setAttribute("status", status);
-			request.getRequestDispatcher("operateview.jsp").forward(request, response);
+			request.getRequestDispatcher("orderDayRemind.jsp").forward(request, response);
 		}
 		else
 		{
@@ -399,13 +450,14 @@ public class OperateAction extends HttpServlet {
 			String jzphone=request.getParameter("jzphone");
 			String company=request.getParameter("company");
 			String adress=request.getParameter("adress");
+			String time=request.getParameter("time");
 			String flag="n";
 			String server="";
 			
 			response.setContentType("text/html;charset=GBK");
 			PrintWriter out=response.getWriter();
 			
-			if (user.adduser(name, sex, year, month, day, phone, company, adress, jzphone, flag, server))
+			if (user.adduser(name, sex, year, month, day, phone, company, adress, jzphone, flag, server, time))
 			{
 				out.print("<script type='text/javascript'>alert('添加成功');history.go(-1);</script>");
 			}
@@ -489,6 +541,8 @@ public class OperateAction extends HttpServlet {
 			OperateServlet user=new OperateServlet();
 			String id=request.getParameter("id");
 			String name=request.getParameter("name");
+			String time=request.getParameter("time");
+			
 			
 			String VRNake=request.getParameter("VRNake");
 			String VRSphere=request.getParameter("VRSphere");
@@ -566,7 +620,7 @@ public class OperateAction extends HttpServlet {
 			
 			if (user.updatepeijingUser(id,name,VRNake,VRSphere,VRCylinder,VRAxis,VRPrism,
 					VLNake,VLSphere,VLCylinder,VLAxis,VLPrism,
-                  RRNake,RRSphere,RRCylinder,RRAxis,RRPrism,RLNake,RLSphere,RLCylinder,RLAxis,RLPrism,VRBottom,VRPrism2,VRBottom2,VRFixed,VRComment,VLBottom,VLPrism2,VLBottom2,VLFixed,VLComment,RRBottom,RRPrism2,RRBottom2,RRFixed,RRComment,RLBottom,RLPrism2,RLBottom2,RLFixed,RLComment,glass,glassNum,glassPrice,mounting,mountingNum,mountingPrice,allmountingPrice,optometrist,decisionMaker,trier,receiver))
+                  RRNake,RRSphere,RRCylinder,RRAxis,RRPrism,RLNake,RLSphere,RLCylinder,RLAxis,RLPrism,VRBottom,VRPrism2,VRBottom2,VRFixed,VRComment,VLBottom,VLPrism2,VLBottom2,VLFixed,VLComment,RRBottom,RRPrism2,RRBottom2,RRFixed,RRComment,RLBottom,RLPrism2,RLBottom2,RLFixed,RLComment,glass,glassNum,glassPrice,mounting,mountingNum,mountingPrice,allmountingPrice,optometrist,decisionMaker,trier,receiver,time))
 			{
 				
 				out.print("<script type='text/javascript'>alert('修改成功');history.go(-1);</script>");
@@ -594,6 +648,7 @@ public class OperateAction extends HttpServlet {
 			OperateServlet user=new OperateServlet();
 			String id=request.getParameter("id");
 			String name=request.getParameter("name");
+			String time=request.getParameter("time");
 			String firstIll[]=request.getParameterValues("firstIll");
 			String familyHistory[]=request.getParameterValues("familyHistory");
 			String posture=request.getParameter("posture");
@@ -624,7 +679,7 @@ public class OperateAction extends HttpServlet {
 			}
 			
 			
-			if (user.updatecheckUser(id, name, afirstIll[0], afirstIll[1], afirstIll[2], afirstIll[3], afamilyHistory[0], afamilyHistory[1], afamilyHistory[2], afamilyHistory[3], posture, LeftDiopter, RightDiopter, LeftAxis, RightAxis, LeftPD, RightPD))
+			if (user.updatecheckUser(id, name, afirstIll[0], afirstIll[1], afirstIll[2], afirstIll[3], afamilyHistory[0], afamilyHistory[1], afamilyHistory[2], afamilyHistory[3], posture, LeftDiopter, RightDiopter, LeftAxis, RightAxis, LeftPD, RightPD,time))
 			{
 				out.print("<script type='text/javascript'>alert('修改成功');history.go(-1);</script>");
 			}

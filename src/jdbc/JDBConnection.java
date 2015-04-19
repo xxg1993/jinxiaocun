@@ -13,10 +13,10 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 public class JDBConnection {
-	private static String url = "jdbc:mysql://localhost:3306/jinxiaocun";
+	private static String url = "jdbc:mysql://localhost:3306/jinxiaocun?useunicode=true&characterEncoding=GBK";
 	private static String driver = "com.mysql.jdbc.Driver";
 	private static String userName = "root";
-	private static String password = "1234";
+	private static String password = "smxyoaweb";
 	static {
 		//获取全局变量文件的类
 		ResourceBundle bundle = ResourceBundle.getBundle("jdbc");  //获取全局变量文件的名称

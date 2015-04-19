@@ -33,23 +33,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </style>
     			<tr>
     				<td align="right">
-    			    <a href="OperateAction?method=returnindex"><font  color=green>   您好：<% if (session.getAttribute("status").equals("admin"))
-    				{
-    					out.println(session.getAttribute("status")); 
-    					out.println("<a href=\"adminview.jsp\">返回管理员界面</a>|");
-    					out.println("<a href=\"serverview.jsp\"> 进入售后员权限</a>");
-    					
-    				    
-    				    }
-    				   else
-    				   {
-    				   		out.println(session.getAttribute("operatetruename")); 
-    				   		out.println("|<a href=\"OperateAction?method=returnindex\">返回首页</a>|");
-    				   		out.println("<a href=\"OperateAction?method=updateoperate\">修改个人信息</a>|");
-    				   		out.println("<a href=\"OperateAction?method=operateexit\" >退出</a>|"); 
-    				   		 
-    				   }
-    				     %>
+    			    <a href="OperateAction?method=returnindex"><font  color=green>   
+    			    <iframe src="topAdminOperate.jsp" width="100%" height="60" frameborder="no"></iframe>
     				     |返回首页</font></a>
     			    </td>
     			</tr>
@@ -58,8 +43,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <tr>
       <td align="center" colspan=8><font size=5 color=green><b>客户列表</b></font>
    		<tr>
-     		<td width="3%" align="center" class="inputHeader">客户编号</td>
-     		<td width="8%" align="center" class="inputHeader">客户姓名</td>
+     		<td width="3%" align="center" class="inputHeader"><a href="OperateAction?method=lookAllUsers">客户编号</a></td>
+     		<td width="8%" align="center" class="inputHeader"><a href="OperateAction?method=LookAllUserOrderByName">客户姓名</a></td>
     		 <td width="3%" align="center" class="inputHeader">客户性别</td>
      		<td width="8%" align="center" class="inputHeader">本人联系方式</td>
      		<td width="8%" align="center" class="inputHeader">家长联系方式</td>

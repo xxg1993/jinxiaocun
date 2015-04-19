@@ -3,7 +3,7 @@
   type="WEB"
   name="jinxiaocun"
   id="myeclipse.1427597518299"
-  context-root="/jinxiaocunWHD"
+  context-root="/jinxiaocunSY"
   j2ee-spec="1.4"
   archive="jinxiaocun.war">
   <attributes>

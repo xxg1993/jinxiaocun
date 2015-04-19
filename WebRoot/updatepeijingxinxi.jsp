@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gbk"%>
+<%@ page language="java" import="java.util.*,java.text.*" pageEncoding="gbk"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -23,6 +23,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+    <%
+SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+Date currentTime = new Date();
+String date1 = formatter.format(currentTime); 
+%>
+   <iframe src="topAdminOperate.jsp" width="100%" height="60" frameborder="no"></iframe>
     <table width=100% >
    		<style type="text/css"> 
 　  　 a:link { text-decoration: none;color: rgb(23,106,219)} 
@@ -36,34 +42,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			    </td>
     			</tr>
     </table>   
-       您好：<% if (session.getAttribute("status").equals("admin"))
-    				{
-    					out.println(session.getAttribute("status")); 
-    					out.println("<a href=\"adminview.jsp\">返回管理员界面</a>|");
-    					out.println("<a href=\"serverview.jsp\"> 进入售后员权限</a>");
-    					
-    				    
-    				    }
-    				   else
-    				   {
-    				   		out.println(session.getAttribute("operatetruename")); 
-    				   		out.println("|<a href=\"OperateAction?method=returnindex\">返回首页</a>|");
-    				   		out.println("<a href=\"OperateAction?method=updateoperate\">修改个人信息</a>|");
-    				   		out.println("<a href=\"OperateAction?method=operateexit\" >退出</a>|"); 
-    				   		 
-    				   }
-    				     %>
-    <br><br><hr>
+   
           <form action="OperateAction?method=modifyUserPeijingxinxi" method="post">
 			<table align="center" width=50% border="2" cellpadding="10" cellspacing="6" bordercolor="3399FF" class="list-table">
+			
+			<tr><input type="hidden" name="time" value="<%=date1 %>"></tr>
 			<tr>
-			<td align="center" colspan=6 rowspan=2><font color=green size=6><b>配镜参数</b></font></td>
+			<td align="center" colspan=5 rowspan=2><font color=green size=6><b>配镜参数</b></font></td>
+			<td align="left" >上次修改时间时间</td>
 			<td align="left">姓名：${map.name}<input type="hidden" name="name" value="${map.name}"></td>
 			</tr>
 			<tr>
-			<td>Id：${map.id }<input type="hidden" name="id" value="${map.id}"></td>
+			 <td align="left">${map.time}</td>
+			 <td>Id：${map.id }<input type="hidden" name="id" value="${map.id}"></td>
 			</tr>
-			
 				<tr>
 					<td align="center"colspan=2>光度</td> <td align="center">裸视</td> <td align="center">球面镜</td> <td align="center">圆柱镜</td>
 					                      <td align="center">轴向</td> <td align="center">三棱镜</td> 

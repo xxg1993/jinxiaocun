@@ -146,7 +146,9 @@ public class AdminAction extends HttpServlet {
 	{
 		request.setCharacterEncoding("gbk");
 		AdminServlet user=new AdminServlet();
-		String name=request.getParameter("name");
+		String name1=request.getParameter("name");
+		String name = new String(name1.getBytes("ISO-8859-1"),"gbk"); 
+		
 		System.out.println("name:"+name);
 		
 		if (user.deleteoperate(name))
@@ -172,7 +174,8 @@ public class AdminAction extends HttpServlet {
 	{
 		request.setCharacterEncoding("gbk");
 		AdminServlet user=new AdminServlet();
-		String name=request.getParameter("name");
+		String name1=request.getParameter("name");
+		String name = new String(name1.getBytes("ISO-8859-1"),"gbk"); 
 		System.out.println("name:"+name);
 		
 		if (user.deleteserver(name))
@@ -199,7 +202,8 @@ public class AdminAction extends HttpServlet {
 	{
 		request.setCharacterEncoding("gbk");
 		AdminServlet user=new AdminServlet();
-		String name=request.getParameter("name");
+		String name1=request.getParameter("name");
+		String name = new String(name1.getBytes("ISO-8859-1"),"gbk"); 
 		Map map=user.selectOperate(name);
 		request.setAttribute("map", map);
 		request.getRequestDispatcher("adminupdateoperate.jsp").forward(request, response);
@@ -214,7 +218,8 @@ public class AdminAction extends HttpServlet {
 	{
 		request.setCharacterEncoding("gbk");
 		AdminServlet user=new AdminServlet();
-		String name=request.getParameter("name");
+		String name1=request.getParameter("name");
+		String name = new String(name1.getBytes("ISO-8859-1"),"gbk"); 
 		Map map=user.selectServer(name);
 		request.setAttribute("map", map);
 		request.getRequestDispatcher("adminupdateserver.jsp").forward(request, response);
@@ -305,6 +310,7 @@ public class AdminAction extends HttpServlet {
 			HttpSession session=request.getSession();
 			session.setAttribute("admintruename", name);
 			session.setAttribute("status", status);
+	
 			request.getRequestDispatcher("adminview.jsp").forward(request, response);
 		}
 		else

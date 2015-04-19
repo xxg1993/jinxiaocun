@@ -146,7 +146,8 @@ public class ServerAction extends HttpServlet {
 	{
 		request.setCharacterEncoding("gbk");
 		ServerServlet user=new ServerServlet();
-		String id=request.getParameter("id");
+		String id1=request.getParameter("id");
+		String id = new String(id1.getBytes("ISO-8859-1"),"gbk");
 		Map map=user.selescid(id);
 		request.setAttribute("map", map);
 		request.getRequestDispatcher("serverLookOneUserinf.jsp").forward(request, response);
@@ -160,7 +161,8 @@ public class ServerAction extends HttpServlet {
 	{
 		request.setCharacterEncoding("gbk");
 		ServerServlet user=new ServerServlet();
-		String id=request.getParameter("id");
+		String id1=request.getParameter("id");
+		String id = new String(id1.getBytes("ISO-8859-1"),"gbk");
 		Map map=user.selescid(id);
 		request.setAttribute("map", map);
 		request.getRequestDispatcher("serverInsertInf.jsp").forward(request, response);
@@ -175,7 +177,8 @@ public class ServerAction extends HttpServlet {
 	{
 		request.setCharacterEncoding("gbk");
 		ServerServlet user=new ServerServlet();
-		String id=request.getParameter("id");
+		String id1=request.getParameter("id");
+		String id = new String(id1.getBytes("ISO-8859-1"),"gbk");
 		System.out.println("id:"+id);
 		
 		if (user.deleteServerUserVisit(id))
@@ -302,6 +305,7 @@ public class ServerAction extends HttpServlet {
 		ServerServlet user=new ServerServlet();
 		String id=request.getParameter("id");
 		String name=request.getParameter("name");
+		String nowtime=request.getParameter("nowtime");
 		String time=request.getParameter("time");
 		String feel=request.getParameter("feel");
 		String advise=request.getParameter("advise");
@@ -310,7 +314,7 @@ public class ServerAction extends HttpServlet {
 		response.setContentType("text/html;charset=GBK");
 		PrintWriter out=response.getWriter();
 		
-		if (user.addServerUserVisit(id, name, time, feel, supervise, advise))
+		if (user.addServerUserVisit(id, name, time, feel, supervise, advise,nowtime))
 		{
 			
 			out.print("<script type='text/javascript'>alert('Ìí¼Ó³É¹¦');history.go(-1);</script>");

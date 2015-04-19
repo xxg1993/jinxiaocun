@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gbk"%>
+<%@ page language="java" import="java.util.*,java.text.*" pageEncoding="gbk"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -22,6 +22,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
     <body>
+        <%
+SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+Date currentTime = new Date();
+String date1 = formatter.format(currentTime); 
+%>
     <table width=100% >
    		<style type="text/css"> 
 　  　 a:link { text-decoration: none;color: rgb(23,106,219)} 
@@ -35,24 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			    </td>
     			</tr>
     </table>
-         您好：<% if (session.getAttribute("status").equals("admin"))
-    				{
-    					out.println(session.getAttribute("status")); 
-    					out.println("<a href=\"adminview.jsp\">返回管理员界面</a>|");
-    					out.println("<a href=\"operateview.jsp\"> 进入操作员权限</a>");
-    					
-    				    
-    				    }
-    				   else
-    				   {
-    				   		out.println(session.getAttribute("operatetruename")); 
-    				   		out.println("|<a href=\"OperateAction?method=returnindex\">返回首页</a>|");
-    				   		out.println("<a href=\"OperateAction?method=updateoperate\">修改个人信息</a>|");
-    				   		out.println("<a href=\"OperateAction?method=operateexit\" >退出</a>|"); 
-    				   		 
-    				   }
-    				     %>
-    <br><br><hr>
+        <iframe src="topAdminOperate.jsp" width="100%" height="60" frameborder="no"></iframe>
     
       <font color="green">用户id:${map.id }  用户姓名：${map.name }   其他资料修改：</font><br>
  
@@ -68,6 +56,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	   		<td>id:${map.id }<input type="hidden" name="id" size="10" maxlength="10" value="${map.id}"></td>
     	   		<td align="center"><font color=green size=6><b>检查信息</b></font></td>
 			 </tr>
+			 
+			<tr>
+				<td width="28%" align="center"  colspan=2 class="InputHeader">上次修改时间</td>
+				<td>${map.time }</td>
+			</tr>
+			 
+			 <tr>
+				<input type="hidden" name="time" value="<%=date1 %>">
+			</tr>
+			 
     	     <tr>
     	     	<td width="28%" align="center"  colspan=2 class="InputHeader">首次发现时间</td>
 				<td style="width: 587px; ">
@@ -102,19 +100,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			 <tr>
 			 <td align="center" colspan=2>屈光度</td>
-			 <td>左眼<input type="text" name="LeftDiopter" value="${map.Leftdiopter}">
-			 	  右眼<input type="text" name="RightDiopter" value="${map.Rightdiopter}"></td>
+			 <td>左眼<input type="text" name="LeftDiopter" value="${map.leftdiopter}">
+			 	  右眼<input type="text" name="RightDiopter" value="${map.rightdiopter}"></td>
 			 </tr>
 			 <tr>
 			 
 			 <td align="center" colspan=2>轴向</td>
-			 <td>左眼<input type="text" name="LeftAxis" value="${map.LeftAxis}">
-			 右眼<input type="text" name="RightAxis" value="${map.RightAxis}"></td>
+			 <td>左眼<input type="text" name="LeftAxis" value="${map.leftaxis}">
+			 右眼<input type="text" name="RightAxis" value="${map.rightaxis}"></td>
 			 </tr>
 			 <tr>
 			<td align="center" colspan=2>瞳距</td>
-			<td>左眼<input type="text" name="LeftPD" value="${map.LeftPD}">
-			 右眼<input type="text" name="RightPD" value="${map.RightPDr}"></td>
+			<td>左眼<input type="text" name="LeftPD" value="${map.leftpd}">
+			 右眼<input type="text" name="RightPD" value="${map.rightpd}"></td>
 			 </tr>
 			 <tr>
 			 	<td class="InputHeader" colspan=2></td>

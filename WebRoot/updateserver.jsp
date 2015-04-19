@@ -22,23 +22,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <body> 您好：<% if (session.getAttribute("status").equals("admin"))
-    				{
-    					out.println(session.getAttribute("status")); 
-    					out.println("<a href=\"adminview.jsp\">返回管理员界面</a>|");
-    					out.println("<a href=\"operateview.jsp\"> 进入操作员权限</a>");
-    					
-    				    
-    				    }
-    				   else
-    				   {
-    				   		out.println(session.getAttribute("operatetruename")); 
-    				   		out.println("|<a href=\"OperateAction?method=returnindex\">返回首页</a>|");
-    				   		out.println("<a href=\"OperateAction?method=updateoperate\">修改个人信息</a>|");
-    				   		out.println("<a href=\"OperateAction?method=operateexit\" >退出</a>|"); 
-    				   		 
-    				   }
-    				     %>
+  <body> 
+       <iframe src="topAdminOperate.jsp" width="100%" height="60" frameborder="no"></iframe>
     <form action="ServerAction?method=updateserverNP" method="post">
        <table align="center" border="2" cellpadding="10" cellspacing="6" bordercolor="3399FF">
       		 <tr>

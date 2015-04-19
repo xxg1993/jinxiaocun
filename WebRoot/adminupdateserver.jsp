@@ -29,19 +29,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <br><br><hr>
    
    <form action="AdminAction?method=updateSExinxi" method="post">
-    <table align="center">
+      <table align="center" border="2" cellpadding="10" cellspacing="6" bordercolor="3399FF">
     	<tr>
-    		<td></td>
-    		<td><input type="hidden" name="oldname" size="20" value="${map.name }"></td>
+    		<td colspan=2 align="center"><font color="green" size=4><b>
+    		<input type="hidden" name="oldname" size="20" value="${map.name }">修改${map.name }登录信息</b></font></td>
     	</tr>
     	<tr>
-    		<td>售后员名字：</td><td><input type="text" name="newname" size="20" value="${map.name }"></td>
+    		<td align="center">售后员名字：</td><td><input type="text" name="newname" size="20" value="${map.name }"></td>
     	<tr>
-    		<td>售后员密码：</td><td><input type="text" name="password" size="20"></td>
+    		<td align="center">售后员密码：</td><td><input type="text" name="password" size="20"></td>
     	</tr>
     	<tr>
-    		<td></td>
-    		<td><input type="submit" value="提交">
+    		<td colspan=2 align="center"><input type="submit" value="提交">
     			<input type="reset" value="重写">
     		</td>
     	</tr>

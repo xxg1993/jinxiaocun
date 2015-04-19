@@ -23,25 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-       您好：<% if (session.getAttribute("status").equals("admin"))
-    				{
-    					out.println(session.getAttribute("status")); 
-    					out.println("<a href=\"adminview.jsp\">返回管理员界面</a>|");
-    					out.println("<a href=\"serverview.jsp\"> 进入售后员权限</a>");
-    					
-    				    
-    				    }
-    				   else
-    				   {
-    				   		out.println(session.getAttribute("servername")); 
-    				   		out.println("|<a href=\"ServerAction?method=returnindex\">返回首页</a>|");
-    				   		out.println("<a href=\"ServerAction?method=updateserver\">修改个人信息</a>|");
-    				   		out.println("<a href=\"ServerAction?method=operateexit\" >退出</a>|"); 
-    				   		 
-    				   }
-    				     %>   				        				      				  
-    <br><br><hr>
-  
+      <iframe src="topAdminServer.jsp" width="100%" height="60" frameborder="no"></iframe>
   
       <font color="green" align="center">查看随访记录</font><br>
 
@@ -53,6 +35,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	   	</tr>
     	   	<tr>
     	   		<td>编号:${map.id }<input type="hidden" name="id" size="10" maxlength="10" value="${map.name}"></td>
+			 </tr>
+			 
+			 <tr>
+				<td width="28%" align="center"   class="InputHeader">上次修改时间</td>
+				<td>${map.nowtime }</td>		 
 			 </tr>
 			 
     	     <tr>

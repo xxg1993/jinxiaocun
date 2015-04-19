@@ -28,6 +28,7 @@ content="keyword1,keyword2,keyword3">
   </head>
   
   <body>
+       <iframe src="topAdminOperate.jsp" width="100%" height="60" frameborder="no"></iframe>
     <table width=100% >
    		<style type="text/css"> 
 　  　 a:link { text-decoration: none;color: rgb(23,106,219)} 
@@ -35,35 +36,7 @@ content="keyword1,keyword2,keyword3">
 　  　 a:hover { text-decoration:underline;color:rgb(23,106,219)}  
 　  　 a:visited { text-decoration: none;color: red } 
         </style>
-    			<tr>
-    				<td align="right">
-    			    <a href="OperateAction?
-
-method=returnindex"><font  color=green>
-    			       您好：<% if (session.getAttribute
-
-("status").equals("admin"))
-    				{
-    					out.println
-
-(session.getAttribute("status")); 
-    					out.println("<a href=\"adminview.jsp\">返回管理员界面</a>|");
-    					out.println("<a href=\"operateview.jsp\"> 进入操作员权限</a>");
-    					}
-    				   else
-    				   {
-    				   		out.println
-
-(session.getAttribute("operatetruename")); 
-    				   		out.println("|<a href=\"OperateAction?method=returnindex\">返回首页</a>|");
-    				   		out.println("<a href=\"OperateAction?method=updateoperate\">修改个人信息</a>|");
-    				   		out.println("<a href=\"OperateAction?method=operateexit\" >退出</a>|"); 
-    				   		 
-    				   }
-    				     %>
-    				     |返回首页</font></a>
-    			    </td>
-    			</tr>
+    			
     </table>
     <br><br>
  <form action="OperateAction?method=lookuserinf" method="post" 
@@ -94,6 +67,11 @@ bordercolor="3399FF">
     <tr>
       <td colspan=7 align="center"><font color=green size=5><b>基本信息</b></font></td>
     </tr>
+      <tr>
+    	    <td align="center" colspan=3>上次修改时间</td>
+      		<td align="center" colspan=4>${list.time }</td>
+    </tr>
+    
     <tr>
       <td>姓名：${list.name }</td>
       <td>编号：${list.id}</td>
@@ -129,6 +107,10 @@ bordercolor="3399FF">
       <td colspan=7 align="center"><font color=green size=5><b>检查信息</b></font></td>
     </tr>
     <tr>
+    	    <td align="center" colspan=1>上次修改时间</td>
+      		<td align="center" colspan=2>${list1.time }</td>
+    </tr>
+    <tr>
       <td>首次发现时间：${list1.firstill1 }&nbsp;${list1.firstill2 }&nbsp;${list1.firstill3 }&nbsp;${list1.firstill4 }</td>
       <td>家族及个人眼病史：${list1.familyhistory1 }&nbsp;${list1.familyhistory2 }&nbsp;${list1.familyhistory3 }&nbsp;${list1.familyhistory4 }</td>
       <td>用眼姿势：${list1.posture }</td>
@@ -156,6 +138,11 @@ bordercolor="3399FF">
 <table  align="center" border="2" cellpadding="10" cellspacing="6" bordercolor="3399FF" class="list-table" >
         <tr>
         <td colspan=7 align="center"><font color=green size=5><b>配镜信息</b></font></td>
+        
+        <tr>
+    	    <td align="center" colspan=2>上次修改时间</td>
+      		<td align="center" colspan=5>${list2.time }</td>
+    </tr>
 		<tr>
 			<td colspan=4>姓名：${list2.name}</td>
 			<td colspan=3>编号：${list2.id }</td>

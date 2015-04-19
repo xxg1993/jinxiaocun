@@ -91,14 +91,14 @@ public class ServerServlet {
 	
 	
 	//添加用户随访后信息
-	public boolean addServerUserVisit(String id,String name,String time,String feel,String supervise,String advise)
+	public boolean addServerUserVisit(String id,String name,String time,String feel,String supervise,String advise,String nowtime)
 	{
 		String sqlstr="update users set flag=? where id=?";
 		String f="y";
 		JDBConnection.update(sqlstr,new String[]{f,id});
 		
-		String sqlstr1="update interview set time=?,feel=?,supervise=?,advise=? where id=?";
-		if (JDBConnection.update(sqlstr1,new String[]{time,feel,supervise,advise,id}))
+		String sqlstr1="update interview set time=?,feel=?,supervise=?,advise=?,nowtime=? where id=?";
+		if (JDBConnection.update(sqlstr1,new String[]{time,feel,supervise,advise,nowtime,id}))
 			return true;
 		else
 			return false;

@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <form action="AdminAction?method=addoperate" method="post">
     	<table align="center" border="2" cellpadding="10" cellspacing="6" bordercolor="3399FF">
     	    <tr>
-    	        <td colspan=2 align="center"><font color="green" size=4><b>添加新的操作员</b></font></td>
+    	        <td colspan=2 align="center"><font color="green" size=4><b>添加新操作员</b></font></td>
     	    </tr>
     		<tr>
     			<td>新操作员名字</td>   <td><input type="text" name="name" size="20"></td>
@@ -56,7 +56,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			<td colspan=2 align="center"><input type="submit" value="提交"><input type="reset" value="重填"></td>
     		</tr>
     	</table>
-    
     </form>
   </body>
 </html>

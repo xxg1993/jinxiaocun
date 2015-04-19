@@ -21,30 +21,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <table  align="center" border="5" 
-          cellpadding="20" cellspacing="26" 
-          bordercolor="3399FF" bgcolor=rgb(222,234,253)>
+  <br><br><br><br><br>
+  <table  align="center" border="0" 
+          cellpadding="20" cellspacing="12" 
+          bordercolor=rgb(41,208,243) >
   <style type="text/css"> 
-　　 <!-- 
-    /*body { background-image: url(D:/photo/1366170845173.jpg);
+    body { background-image: url(E:\xinworkspace\jinxiaocunTest\images\header-banner.jpg);
     background-repeat=no-repeat;
-    background-size=1368px 768px;}**/
-　　 a:link { text-decoration: none;color: rgb(23,106,219)} 
+    background-size=1368px 768px;}
+　　 a:link { text-decoration: none;color: rgb(255,255,255)} 
 　　 a:active { text-decoration:blink} 
-　　 a:hover { text-decoration:underline;color: red}  
-　　 a:visited { text-decoration: none;color: rgb(23,106,219)} 
-table{filter: Alpha(Opacity=70);}
-　　 -－>  
+　　 a:hover { text-decoration:none;color: rgb(50,170,235)}  
+　　 a:visited { text-decoration: none;color: rgb(255,255,255)}
+    a:hover { text-decoration:none;color: rgb(50,170,235)} 
+/* table{filter: Alpha(Opacity=30);}**/
+    border{filter:Alpha(Opcity=30);}
 　　 </style>
-<tr>
-<br><br><br><br><br><br>
-</tr>
     <tr>
-    <td align="center"><a href="adminland.jsp" >管理员登陆</a></td>
-    <td align="center"><a href="operateland.jsp">操作员登陆</a></td></tr>
+    <td align="center"><a href="adminland.jsp" ><font size=5 face="微软雅黑">管理员登录</font></a></td>
+    <td align="center"><a href="operateland.jsp"><font size=5 face="微软雅黑">操作员登录</font></a></td></tr>
     <tr>
-    <td align="center"><a href="financialland.jsp" >财务员登陆</a></td>
-    <td align="center"><a href="servicerland.jsp">售后员登陆</a></td></tr>
+    <td align="center"><a href="financialland.jsp" ><font size=5 face="微软雅黑">财务员登录</font></a></td>
+    <td align="center"><a href="servicerland.jsp"><font size=5 face="微软雅黑">售后员登录</font></a></td></tr>
     </table>
   </body>
 </html>

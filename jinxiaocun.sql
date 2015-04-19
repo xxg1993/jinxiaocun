@@ -82,21 +82,23 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
-  `id` int(11) NOT NULL auto_increment,
-  `tureName` varchar(255) NOT NULL,
+  `id` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `time` date NOT NULL,
-  `type` varchar(255) default NULL,
-  `age` int(11) default NULL,
-  `workyear` int(11) default NULL,
+  `year` varchar(255) NOT NULL,
+   `month` varchar(255) NOT NULL,
+   `day` varchar(255) NOT NULL, 
+    `hour` varchar(255) NOT NULL, 
+   `minute` varchar(255) NOT NULL, 
+   `work` varchar(255) NOT NULL, 
   `phone` varchar(255) NOT NULL,
+  `times` varchar(255) NOT NULL
   
-  PRIMARY KEY  (`id`)
+
 ) ENGINE=InnoDB DEFAULT CHARSET=gb2312;
 
 LOCK TABLES `orders` WRITE;
 
-insert  into `orders`(`id`,`tureName`,`name`,`time`,`type`,`age`,`workyear`,`phone`) values (1,'222','ÕÅÈý','2011-12-05 10:23:24','aaa',30,1,'1234567');
+insert  into `orders`(`id`,`name`,`year`,`month`,`day`,`hour`,`minute`,`work`,`phone`,`times`) values ('1','111','2015','03','21','08','30','¸´²é','1234567','201503210830');
 
 UNLOCK TABLES;
 
@@ -115,13 +117,14 @@ CREATE TABLE `users` (
   `adress` varchar(255) NOT NULL,
   `flag`  varchar(255) NOT NULL,
 `server` varchar(255) NOT NULL,
-  PRIMARY KEY  (`name`)
+`time` varchar(255) NOT NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=gb2312;
 
 LOCK TABLES `users` WRITE;
 
-insert  into `users`(`id`,`name`,`sex`,`year`,`month`,`day`,`phone`,`jzphone`,`company`,`adress`,`flag`,`server`) values ('1','111','111','110','q@163.com','ÄÐ','111','111','111','111','y','111');
-insert  into `users`(`id`,`name`,`sex`,`year`,`month`,`day`,`phone`,`jzphone`,`company`,`adress`,`flag`,`server`) values ('2','222','111','110','q@163.com','ÄÐ','111','111','111','111','n','');
+insert  into `users`(`id`,`name`,`sex`,`year`,`month`,`day`,`phone`,`jzphone`,`company`,`adress`,`flag`,`server`,`time`) values ('1','111','111','110','q@163.com','ÄÐ','111','111','111','111','y','111','2015-04-18 21:16:15');
+insert  into `users`(`id`,`name`,`sex`,`year`,`month`,`day`,`phone`,`jzphone`,`company`,`adress`,`flag`,`server`,`time`) values ('2','222','111','110','q@163.com','ÄÐ','111','111','111','111','n','111','2015-04-18 21:16:16');
 
 UNLOCK TABLES;
 
@@ -140,18 +143,19 @@ CREATE TABLE `usersafterinf` (
   `familyHistory3` varchar(255) NOT NULL,
   `familyHistory4` varchar(255) NOT NULL,
   `posture` varchar(255) NOT NULL,
-  `LeftDiopter` varchar(255) NOT NULL,
-  `RightDiopter` varchar(255) NOT NULL,
-  `LeftAxis` varchar(255) NOT NULL,
-  `RightAxis` varchar(255) NOT NULL,
-  `LeftPD` varchar(255) NOT NULL,
-  `RightPD` varchar(255) NOT NULL,
-  PRIMARY KEY  (`name`)
+  `leftdiopter` varchar(255) NOT NULL,
+  `rightdiopter` varchar(255) NOT NULL,
+  `leftaxis` varchar(255) NOT NULL,
+  `rightaxis` varchar(255) NOT NULL,
+  `leftpd` varchar(255) NOT NULL,
+  `rightpd` varchar(255) NOT NULL,
+  `time` varchar(255) NOT NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=gb2312;
 
 LOCK TABLES `usersafterinf` WRITE;
 
-insert  into `usersafterinf`(`id`,`name`,`firstill1`,`firstIll2`,`firstIll3`,`firstIll4`,`familyhistory1`,`familyhistory2`,`familyhistory3`,`familyhistory4`,`posture`,`leftdiopter`,`rightdiopter`,`leftaxis`,`rightaxis`,`leftpd`,`rightpd`) values ('1','111','111','110','q@163.com','ÄÐ','111','111','111','1','111','111','110','q@163.com','ÄÐ','111','111');
+insert  into `usersafterinf`(`id`,`name`,`firstill1`,`firstIll2`,`firstIll3`,`firstIll4`,`familyhistory1`,`familyhistory2`,`familyhistory3`,`familyhistory4`,`posture`,`leftdiopter`,`rightdiopter`,`leftaxis`,`rightaxis`,`leftpd`,`rightpd`,`time`) values ('1','111','111','110','q@163.com','ÄÐ','111','111','111','1','111','111','110','q@163.com','ÄÐ','111','111','2015-04-18 21:16:15');
 
 UNLOCK TABLES;
 
@@ -212,13 +216,14 @@ CREATE TABLE `peijingxinxi` (
 `decisionmaker` varchar(255) NOT NULL,
 `trier` varchar(255) NOT NULL,
 `receiver` varchar(255) NOT NULL,
+`time` varchar(255) NOT NULL,
 
-  PRIMARY KEY  (`name`)
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=gb2312;
 
 LOCK TABLES `peijingxinxi` WRITE;
 
-insert  into `peijingxinxi`(`id`,`name`,`vrnake`,`vrsphere`,`vrcylinder`,`vraxis`,`vrprism`,`vlnake`,`vlsphere`,`vlcylinder`,`vlaxis`,`vlprism`,`rrnake`,`rrsphere`,`rrcylinder`,`rraxis`,`rrprism`,`rlnake`,`rlsphere`,`rlcylinder`,`rlaxis`,`rlprism`,`vrbottom`,`vrprism2`,`vrbottom2`,`vrfixed`,`vrcomment`,`vlbottom`,`vlprism2`,`vlbottom2`,`vlfixed`,`vlcomment`,`rrbottom`,`rrprism2`,`rrbottom2`,`rrfixed`,`rrcomment`,`rlbottom`,`rlprism2`,`rlbottom2`,`rlfixed`,`rlcomment`,`glass`,`glassnum`,`glassprice`,`mounting`,`mountingnum`,`mountingprice`,`allmountingprice`,`optometrist`,`decisionmaker`,`trier`,`receiver`) values ('1', '111', '1', '1', '1', '1', '1','1', '1', '1', '1', '1', '1', '1', '1', '1','1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1','1', '1', '1', '1', '1', '1', '1', '1','1', '1', '1', '1', '1', '1', '1', '1','1', '1', '1', '1', '1');
+insert  into `peijingxinxi`(`id`,`name`,`vrnake`,`vrsphere`,`vrcylinder`,`vraxis`,`vrprism`,`vlnake`,`vlsphere`,`vlcylinder`,`vlaxis`,`vlprism`,`rrnake`,`rrsphere`,`rrcylinder`,`rraxis`,`rrprism`,`rlnake`,`rlsphere`,`rlcylinder`,`rlaxis`,`rlprism`,`vrbottom`,`vrprism2`,`vrbottom2`,`vrfixed`,`vrcomment`,`vlbottom`,`vlprism2`,`vlbottom2`,`vlfixed`,`vlcomment`,`rrbottom`,`rrprism2`,`rrbottom2`,`rrfixed`,`rrcomment`,`rlbottom`,`rlprism2`,`rlbottom2`,`rlfixed`,`rlcomment`,`glass`,`glassnum`,`glassprice`,`mounting`,`mountingnum`,`mountingprice`,`allmountingprice`,`optometrist`,`decisionmaker`,`trier`,`receiver`,`time`) values ('1', '111', '1', '1', '1', '1', '1','1', '1', '1', '1', '1', '1', '1', '1', '1','1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1','1', '1', '1', '1', '1', '1', '1', '1','1', '1', '1', '1', '1', '1', '1', '1','1', '1', '1', '1', '1','2015-04-18 21:16:16');
 
 UNLOCK TABLES;
 
@@ -232,12 +237,13 @@ CREATE TABLE `interview` (
   `feel` varchar(255) default NULL,
    `supervise` varchar(255) NOT NULL,
   `advise` varchar(255) default NULL,
+  `nowtime` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=gb2312;
 
 
 LOCK TABLES `interview` WRITE;
 
-insert  into `interview`(`id`,`name`,`time`,`feel`,`supervise`,`advise`) values ('1','111','5','haha','aaaa','qqqq');
+insert  into `interview`(`id`,`name`,`time`,`feel`,`supervise`,`advise`,`nowtime`) values ('1','111','5','haha','aaaa','qqqq','2015-04-18 21:16:15');
 
 UNLOCK TABLES;

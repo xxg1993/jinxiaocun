@@ -24,6 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+       <iframe src="topAdminOperate.jsp" width="100%" height="60" frameborder="no"></iframe>
      <table width=100% >
    		<style type="text/css"> 
 　  　 a:link { text-decoration: none;color: rgb(23,106,219)} 
@@ -31,29 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 　  　 a:hover { text-decoration:underline;color:rgb(23,106,219)}  
 　  　 a:visited { text-decoration: none;color: red } 
         </style>
-    			<tr>
-    				<td align="right">
-    			    <a href="OperateAction?method=returnindex"><font  color=green>
-    			    您好：<% if (session.getAttribute("status").equals("admin"))
-    				{
-    					out.println(session.getAttribute("status")); 
-    					out.println("<a href=\"adminview.jsp\">返回管理员界面</a>|");
-    					out.println("<a href=\"operateview.jsp\"> 进入操作员权限</a>");
-    					
-    				    
-    				    }
-    				   else
-    				   {
-    				   		out.println(session.getAttribute("operatetruename")); 
-    				   		out.println("|<a href=\"OperateAction?method=returnindex\">返回首页</a>|");
-    				   		out.println("<a href=\"OperateAction?method=updateoperate\">修改个人信息</a>|");
-    				   		out.println("<a href=\"OperateAction?method=operateexit\" >退出</a>|"); 
-    				   		 
-    				   }
-    				     %>
-    				     |返回首页</font></a>
-    			    </td>
-    			</tr>
+    			
     </table>
 <table align="center" border="2" cellpadding="10" cellspacing="6" bordercolor="3399FF">    	
     <tr>
@@ -64,7 +43,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <table align="center" border="2" cellpadding="10" cellspacing="6" bordercolor="3399FF" class="InputTable">
     <tr>
       <td colspan=7 align="center"><font color=green size=5><b>基本信息</b></font></td>
+  
     </tr>
+    <tr>
+    	    <td align="center" colspan=3>上次修改时间</td>
+      		<td align="center" colspan=4>${map.time }</td>
+    </tr>
+    
+    
+    
     <tr>
       <td>姓名：${map.name }</td>
       <td>编号：${map.id}</td>
@@ -84,6 +71,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <tr>
          <td colspan=7 align="center"><font color=green size=5><b>检查信息</b></font></td>
     </tr>
+    
+     <tr>
+    	    <td align="center" colspan=1>上次修改时间</td>
+      		<td align="center" colspan=2>${map1.time }</td>
+    </tr>
+    
     <tr>
       <td>首次发现时间：${map1.firstill1 }&nbsp;${map1.firstill2 }&nbsp;${map1.firstill3 }&nbsp;${map1.firstill4 }</td>
       <td>家族及个人眼病史：${map1.familyhistory1 }&nbsp;${map1.familyhistory2 }&nbsp;${map1.familyhistory3 }&nbsp;${map1.familyhistory4 }</td>
@@ -104,6 +97,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <table  align="center" border="2" cellpadding="10" cellspacing="6" bordercolor="3399FF" class="map-table" >
         <tr>
         <td colspan=7 align="center"><font color=green size=5><b>配镜信息</b></font></td>
+        
+        <tr>
+    	    <td align="center" colspan=2>上次修改时间</td>
+      		<td align="center" colspan=5>${map2.time }</td>
+    </tr>
+        
 		<tr>
 			<td width=140px align="center"colspan=2>光度</td> <td align="center">裸视</td> <td align="center">球面镜</td> <td align="center">圆柱镜</td>
 					                      <td align="center">轴向</td> <td align="center">三棱镜</td> 

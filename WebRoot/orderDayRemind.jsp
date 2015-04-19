@@ -1,5 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="gbk"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -10,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'lookalloperate.jsp' starting page</title>
+    <title>My JSP 'orderDayRemind.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,23 +22,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <body>
-    您好：<%=session.getAttribute("status") %>|<a href="adminview.jsp">返回管理员界面</a>
-    <br><br><hr><br><br><br><br>
-    <table align="center" border="2" cellpadding="10" cellspacing="6" bordercolor="3399FF">
-      <tr>
-        <td align="center" colspan=4><font color=green size=5><b>管理员列表</b></font></td>
-      </tr>
-     <c:forEach items="${list}" var="list" >
-     	<tr> 
-     		<td align="center">${list.name}</td>
-
-     	</tr>
-     
-     </c:forEach>
-    </table>
-     	
-    	
-    
+  <body align="center">
+    是否查看所有预约？<br>
+    <a href="OrderAction?method=LookAllOrder">查看</a>
+    <br>
+    <a href="operateview.jsp">暂不查看</a>
   </body>
 </html>

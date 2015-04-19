@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="gbk"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -23,35 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
    <body align="center">
-   	<table width=100% >
-   		
-    			<tr>
-    				<td>您好：
-    				<% if (session.getAttribute("status").equals("admin"))
-    				{
-    					out.println(session.getAttribute("status")); 
-    					out.println("<a href=\"adminview.jsp\">返回管理员界面</a>|");
-    					out.println("<a href=\"serverview.jsp\"> 进入售后员权限</a>");
-    					
-    				    
-    				    }
-    				   else
-    				   {
-    				   		out.println(session.getAttribute("operatetruename")); 
-    				   		out.println("|<a href=\"OperateAction?method=returnindex\">返回首页</a>|");
-    				   		out.println("<a href=\"OperateAction?method=updateoperate\">修改个人信息</a>|");
-    				   		out.println("<a href=\"OperateAction?method=operateexit\" >退出</a>|"); 
-    				   		 
-    				   }
-    				     %>
- 
-    			   
-    			    </td>
-    			</tr>
-    			
-    		</table>
-    	<br><br><br>
-    	
+     <iframe src="topAdminOperate.jsp" width="100%" height="60" frameborder="no"></iframe>
+
    <table align="center" border="2" cellpadding="10" cellspacing="6" bordercolor="3399FF">
      <style type="text/css"> 
 　  　  a:link { text-decoration: none;color: rgb(23,106,219)} 
@@ -68,6 +42,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <tr>    	
     	  <td align="center"><a href="LookUserInf.jsp"><font color=green><b>查看单个客户信息</b></font></a></td>
     	</tr>
+    	
+    	<tr>    	
+    	  <td align="center"><a href="OrderAction?method=LookAllOrder"><font color=green><b>查看所有预约信息</b></font></a></td>
+    	</tr>
+    	
+    	
+    	<tr>    	
+    	  <td align="center"><a href="orderaddoption.jsp"><font color=green><b>添加预约信息</b></font></a></td>
+    	</tr>
+    	
+    	
    </table>	
   </body>
 </html>

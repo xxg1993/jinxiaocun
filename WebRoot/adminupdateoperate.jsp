@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <form action="AdminAction?method=updateOPxinxi" method="post">
     <table align="center" border="2" cellpadding="10" cellspacing="6" bordercolor="3399FF">
     	<tr>
-    		<td colspan=2 align="center"><font color="green" size=4><b>修改${map.name }登录信息</b></font></td>
+    		<td colspan=2 align="center"><font color="green" size=4><b><input type="hidden" name="oldname" size="20" value="${map.name }">修改${map.name }登录信息</b></font></td>
     	</tr>
     	<tr>
     		<td>操作员名字</td><td><input type="text" name="newname" size="20" value="${map.name }"></td>

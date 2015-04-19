@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <td align="center"><a href="AdminAction?method=lookallserver"><font color=green><b>查看所有售后员</b></font></a></td>
    </tr>
     <tr>
-     <td rowspan=3 align="center"><a href="financialview.jsp"><font color=green><b>财务员权限（no）</b></font></a></td>
+     <td rowspan=3 align="center" width=50%><a href="financialview.jsp"><font color=green><b>财务员权限（no）</b></font></a></td>
      <td align="center"><a href="addadmin.jsp"><font color=green><b>添加管理员</b></font></a></td>
      </tr>
    <tr>

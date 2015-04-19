@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'top.jsp' starting page</title>
+    <title>My JSP 'orderDeleteDay.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -22,9 +22,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <body>
-    您好：<%=session.getAttribute("operatetruename") %>操作员
-    |<a href="OperateAction?method=returnindex">返回首页</a>
-    |<a href="OperateAction?method=operateexit" target="_parent" >退出</a>
+  <body align="center">
+    是否删除所有已到期的预约？
+    <br>
+    <a href="OrderAction?method=LookAllOrder&exitFlag=1">手动删除</a><br><br>
+    <a href="OperateAction?method=operateexit">不，我退出</a>
   </body>
 </html>

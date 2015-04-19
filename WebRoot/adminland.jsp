@@ -25,18 +25,57 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   <br><br><br>
      <form action="AdminAction?method=adminlogin" method="post" name="form1">
-     <table align="center" border="2" cellpadding="10" cellspacing="6" bordercolor="3399FF">
-     <tr><td align="center" colspan="2"><font color="green" size=5><b>管理员登录</b></font></td>
+     <table align="center" border="0" cellpadding="10" cellspacing="6" bordercolor="3399FF" >
+     <style type="text/css">
+body {
+	background-image:
+		url(E:\xinworkspace\jinxiaocunTest\images\header-banner.jpg);
+	background-repeat
+	=no-repeat;
+	background-size
+	=1368px
+	768px;
+}
+
+　　 a:link {
+	text-decoration: none;
+	color: rgb(255, 255, 255)
+}
+
+　　 a:active {
+	text-decoration: blink
+}
+
+　　 a:hover {
+	text-decoration: none;
+	color: rgb(50, 170, 235)
+}
+
+　　 a:visited {
+	text-decoration: none;
+	color: rgb(255, 255, 255)
+}
+
+}
+input,textarea {
+	background-color: none;
+	color: white;
+	family: 微软雅黑;
+	filter: Alpha(Opacity = 100%);
+}
+　　
+</style>
+     <tr><td></td><td align="center" colspan="2"><font color=rgb(100,240,100) size=5><b>管理员登录</b></font></td>
      </tr>
      <tr>
-     	<td>管理员名字</td><td><input type="text" name="adminname" size="20" maxlength="20">
+     	<td><font color=rgb(228,228,228) face="微软雅黑">名字</font></td><td><input type="text" name="adminname" style="filter: Alpha(Opacity=40);" size="20" maxlength="20">
      	</td></tr>
      	<tr>
-     	<td>管理员密码</td><td><input type="text" name="adminpassword" size="20" maxlength="20"></td>
+     	<td><font color=rgb(228,228,228) face="微软雅黑">密码</font></td><td><input type="text" name="adminpassword" style="filter: Alpha(Opacity=40);" size="20" maxlength="20"></td>
      	</tr>
-     	<tr>
-     	<td colspan="2" align="center"><input type="submit" value="登录">
-     	<input type="reset" value="重填"></td>
+     	<tr><td></td>
+     	<td align="center"><font color=green><input type="submit" value="登录" style="width:60px;height:35px;color=rgb(50,150,220);font-size:18px;font-family:微软雅黑"> 
+     	<input type="reset" value="重填" style="width:60px;height:35px;color=rgb(50,150,220);font-size:18px;font-family:微软雅黑"></font></td>
      	</tr>
      	</table>
      </form>  

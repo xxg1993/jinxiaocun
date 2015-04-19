@@ -24,23 +24,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+
     您好：<%=session.getAttribute("status") %>|<a href="adminview.jsp">返回管理员界面</a>
     <br><br><hr>
-    现有列表：<br>
     <table width="100%" border="2" cellpadding="10" cellspacing="6" bordercolor="3399FF">
       <tr>
-    	<td>操作员名字</td>
-    	<td>操作员密码</td>
-    	<td>修改操作员信息</td>
-    	<td>删除操作员</td>
+        <td align="center" colspan=4><font color=green size=5><b>操作员列表</b></font></td>
+      </tr>
+      <tr>
+    	<td align="center">操作员名字</td>
+    	<td align="center">操作员密码</td>
+    	<td align="center">修改操作员信息</td>
+    	<td align="center">删除操作员</td>
      </tr>
      
      <c:forEach items="${list}" var="list" >
      	<tr> 
-     		<td>${list.name}</td>
-     		<td>${list.password }</td>
-     		<td><a href="AdminAction?method=skipmodifyoperate&name=${list.name }">修改操作员信息</a></td>
-    		<td><a href="AdminAction?method=executeoperate&name=${list.name }">删除操作员</a></td>
+     		<td align="center">${list.name}</td>
+     		<td align="center">${list.password }</td>
+     		<td align="center"><a href="AdminAction?method=skipmodifyoperate&name=${list.name }">修改操作员信息</a></td>
+    		<td align="center"><a href="AdminAction?method=executeoperate&name=${list.name }">删除操作员</a></td>
      	</tr>
      
      </c:forEach>
